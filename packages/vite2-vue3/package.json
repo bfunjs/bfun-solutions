@@ -4,7 +4,7 @@
   "description": "@bfun/cli solution vite2 & vue3",
   "main": "dist/index.js",
   "buildOptions": {
-    "minified": false
+    "minified": true
   },
   "repository": {
     "type": "git",
