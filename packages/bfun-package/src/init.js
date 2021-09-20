@@ -1,6 +1,8 @@
 import { join, resolve } from 'path';
 import fs from 'fs-extra';
-import { isPackageDir, keyGen, toCamel } from '../../shared';
+import { isPackageDir, keyGen } from '../../shared';
+
+const { logger, toCamel } = require('@bfun/cli');
 
 const rollupAlias = require('@rollup/plugin-alias');
 const rollupCommonjs = require('@rollup/plugin-commonjs');
@@ -9,8 +11,6 @@ const rollupJson = require('@rollup/plugin-json');
 const rollupReplace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const rollupTypescript = require('rollup-plugin-typescript2');
-
-const { logger } = global.common;
 
 function findAllPackages(target) {
     const { rootDir } = global;
@@ -22,7 +22,7 @@ function findAllPackages(target) {
 }
 
 function createReplacePlugin(constants) {
-    const replacements = {};
+    const replacements = { preventAssignment: true };
     Object.keys(constants).forEach(key => {
         if (key in process.env) {
             replacements[key] = process.env[key];
@@ -127,7 +127,7 @@ export async function init(ctx, next, solutionOptions) {
     let list = findAllPackages(target);
 
     if (!list.length) {
-        logger.error(`未找到符合条件的目录: ${target}`.red);
+        logger.error(`未找到符合条件的目录: ${target}`);
         process.exit(0);
     }
 

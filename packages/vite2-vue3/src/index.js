@@ -1,9 +1,8 @@
 import { init } from './init';
 
-export const required = [ 'webpack' ];
+export const extensions = [];
+export const required = [ 'vue' ];
 export const version = '__VERSION__';
-
-export * from './init';
 
 export const preDev = init;
 export { dev } from './dev';

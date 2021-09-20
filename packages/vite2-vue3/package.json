@@ -1,0 +1,30 @@
+{
+  "name": "@bfun/solution-vite2-vue3",
+  "version": "4.0.1-beta.1",
+  "description": "@bfun/cli solution vite2 & vue3",
+  "main": "dist/index.js",
+  "buildOptions": {
+    "minified": false
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfunjs/bfun-solutions.git"
+  },
+  "author": "suibinc@qq.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bfunjs/bfun-solutions/issues"
+  },
+  "homepage": "https://github.com/bfunjs/bfun-solutions#readme",
+  "dependencies": {
+    "@vitejs/plugin-vue": "^1.8.0",
+    "@vue/compiler-sfc": "^3.2.12",
+    "vite": "^2.5.10"
+  },
+  "peerDependencies": {
+    "@bfun/cli": ">=4.0.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

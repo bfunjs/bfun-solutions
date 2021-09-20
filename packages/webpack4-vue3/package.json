@@ -1,6 +1,6 @@
 {
   "name": "@bfun/solution-webpack4-vue3",
-  "version": "1.0.2",
+  "version": "4.0.4",
   "description": "@bfun/cli solution webpack4 & vue3",
   "main": "dist/index.js",
   "buildOptions": {
@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/bfunjs/bfun-solutions#readme",
   "dependencies": {
-    "@bfun/solution-webpack4-standard": "1",
+    "@bfun/solution-webpack4-standard": "4",
     "@koa/router": "9",
-    "@vue/compiler-sfc": "latest",
+    "@vue/compiler-sfc": "^3.2.2",
     "@vue/server-renderer": "^3.0.4",
     "chokidar": "3",
     "koa": "2",
@@ -32,9 +32,10 @@
     "webpack-merge": "5"
   },
   "peerDependencies": {
-    "@bfun/cli": ">=3.1.0",
-    "@bfun/solution-webpack4-standard": "1",
-    "webpack-chain": "*",
-    "webpack": "4"
+    "@bfun/cli": ">=4.0.1",
+    "webpack-chain": "*"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }

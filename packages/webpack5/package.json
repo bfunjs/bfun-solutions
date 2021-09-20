@@ -1,6 +1,6 @@
 {
-  "name": "@bfun/solution-webpack4-standard",
-  "version": "4.0.3",
+  "name": "@bfun/solution-webpack5",
+  "version": "0.0.1",
   "description": "@bfun/cli solution webpack4 standard",
   "main": "dist/index.js",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/bfunjs/bfun-solutions#readme",
   "dependencies": {
-    "@babel/core": "7",
+    "@babel/core": "^7.15.0",
     "@babel/eslint-parser": "7",
     "@babel/eslint-plugin": "7",
     "@babel/preset-env": "7",
@@ -22,11 +22,11 @@
     "clean-webpack-plugin": "3",
     "css-loader": "3",
     "eslint": "^7.13.0",
-    "eslint-webpack-plugin": "2",
+    "eslint-webpack-plugin": "latest",
     "file-loader": "4",
     "friendly-errors-webpack-plugin": "1",
     "html-webpack-plugin": "3",
-    "html-webpack-template": "^6.2.0",
+    "html-webpack-template": "latest",
     "less": "3",
     "less-loader": "5",
     "mini-css-extract-plugin": "0",
@@ -37,7 +37,7 @@
     "ts-loader": "8",
     "typescript": "4",
     "url-loader": "2",
-    "webpack": "4",
+    "webpack": "^5.50.0",
     "webpack-bundle-analyzer": "^4.4.0",
     "webpack-chain": "6",
     "webpack-dev-server": "3",
@@ -49,5 +49,8 @@
   },
   "devDependencies": {
     "@bfun/utils": "latest"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }

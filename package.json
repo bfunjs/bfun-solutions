@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "cnpm-install": "npm install typescript -D --registry=https://registry.npm.taobao.org",
+    "build": "bfun build package",
     "build:all": "bfun build package",
     "build:bfun-package": "bfun build package ./packages/bfun-package",
     "build:bfun-component": "bfun build package ./packages/bfun-component",
     "build:bfun-template": "bfun build package ./packages/bfun-template",
+    "build:vite2-vue3": "bfun build package ./packages/vite2-vue3",
+    "release:vite2-vue3": "cd packages/vite2-vue3 && npm publish --access=public",
     "release:bfun-package": "cd packages/bfun-package && npm publish --access=public",
     "release:webpack4-standard": "cd packages/webpack4-standard && npm publish --access=public",
     "release:webpack4-standard-h5": "cd packages/webpack4-standard-h5 && npm publish --access=public",
@@ -31,14 +34,14 @@
   },
   "homepage": "https://github.com/bfunjs/bfun-solutions#readme",
   "devDependencies": {
-    "@bfun/cli": "latest",
-    "@bfun/solution-package": "^1.1.0",
+    "@bfun/cli": "^4.0.3",
+    "@bfun/solution-package": "^4.1.1",
     "@rollup/plugin-json": "^4.1.0",
     "execa": "^4.1.0",
     "fs-extra": "^9.1.0",
-    "rollup": "^2.38.5",
+    "rollup": "^2.56.2",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "typescript": "^4.1.5"
+    "typescript": "^4.3.5"
   }
 }
