@@ -4,7 +4,7 @@ const vue = require('@vitejs/plugin-vue');
 
 const { rootDir, configDir } = global;
 
-export async function init(ctx, next, solutionOptions) {
+export async function init(ctx, next) {
     const { solution } = ctx;
     const { options = {} } = solution || {};
 
