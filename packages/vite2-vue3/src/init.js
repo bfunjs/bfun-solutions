@@ -19,17 +19,15 @@ export async function init(ctx, next) {
     clientConfig.plugins.push(vue());
 
     if (options.publicPath) clientConfig.base = options.publicPath;
+    clientConfig.build.outDir = resolve(rootDir, 'dist', options.distSubDir || '');
 
+    // SSR
     const serverConfig = defineConfig(cloneDeep(clientConfig));
 
-    if (options.distSubDir) {
-        clientConfig.build.outDir = resolve(rootDir, 'dist', options.distSubDir);
-    }
     if (options.ssr && !isDev) {
         serverConfig.build.outDir = resolve(clientConfig.build.outDir, 'server');
         serverConfig.build.ssr = resolve(configDir, 'entry-server.ts');
 
-        clientConfig.build.outDir = resolve(clientConfig.build.outDir, 'client');
         clientConfig.build.ssr = resolve(configDir, 'entry-client.ts');
         clientConfig.build.ssrManifest = true;
     }

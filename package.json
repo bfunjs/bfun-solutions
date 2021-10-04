@@ -10,8 +10,11 @@
     "build:bfun-package": "bfun build package ./packages/bfun-package",
     "build:bfun-component": "bfun build package ./packages/bfun-component",
     "build:bfun-template": "bfun build package ./packages/bfun-template",
+
     "build:vite2-vue3": "bfun build package ./packages/vite2-vue3",
-    "release:vite2-vue3": "cd packages/vite2-vue3 && npm publish --access=public",
+    "install:vite2-vue3": "cd packages/vite2-vue3 && npm install",
+    "release:vite2-vue3": "npm run build:vite2-vue3 && cd packages/vite2-vue3 && npm publish --access=public",
+
     "release:bfun-package": "cd packages/bfun-package && npm publish --access=public",
     "release:webpack4-standard": "cd packages/webpack4-standard && npm publish --access=public",
     "release:webpack4-standard-h5": "cd packages/webpack4-standard-h5 && npm publish --access=public",

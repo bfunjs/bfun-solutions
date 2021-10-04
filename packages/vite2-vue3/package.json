@@ -1,6 +1,6 @@
 {
   "name": "@bfun/solution-vite2-vue3",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "@bfun/cli solution vite2 & vue3",
   "main": "dist/index.js",
   "buildOptions": {
