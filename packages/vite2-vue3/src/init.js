@@ -1,3 +1,5 @@
+import { cloneDeep } from 'lodash-es';
+
 const { resolve } = require('path');
 const { defineConfig } = require('vite');
 const vue = require('@vitejs/plugin-vue');
@@ -9,17 +11,30 @@ export async function init(ctx, next) {
     const { options = {} } = solution || {};
 
     // const isDev = process.env.NODE_ENV !== 'production';
-    const viteConfig = defineConfig(options.vite || {});
+    const clientConfig = defineConfig(options.vite || {});
 
-    viteConfig.root = configDir;
-    if (!viteConfig.build) viteConfig.build = {};
-    if (!viteConfig.plugins) viteConfig.plugins = [];
-    viteConfig.plugins.push(vue());
+    clientConfig.root = configDir;
+    if (!clientConfig.build) clientConfig.build = {};
+    if (!clientConfig.plugins) clientConfig.plugins = [];
+    clientConfig.plugins.push(vue());
 
-    if (options.publicPath) viteConfig.base = options.publicPath;
-    if (options.distSubDir) viteConfig.build.outDir = resolve(rootDir, 'dist', options.distSubDir);
+    if (options.publicPath) clientConfig.base = options.publicPath;
 
-    ctx.solution.vite = viteConfig;
+    const serverConfig = defineConfig(cloneDeep(clientConfig));
+
+    if (options.distSubDir) {
+        clientConfig.build.outDir = resolve(rootDir, 'dist', options.distSubDir);
+    }
+    if (options.ssr) {
+        serverConfig.build.outDir = resolve(clientConfig.build.outDir, 'server');
+        serverConfig.ssr = resolve(configDir, 'entry-server.ts');
+
+        clientConfig.build.outDir = resolve(clientConfig.build.outDir, 'client');
+        clientConfig.ssr = resolve(configDir, 'entry-client.ts');
+        clientConfig.ssrManifest = true;
+    }
+
+    ctx.solution.vite = [ clientConfig, serverConfig ];
 
     await next();
 }

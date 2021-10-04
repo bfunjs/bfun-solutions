@@ -34,8 +34,8 @@
   },
   "homepage": "https://github.com/bfunjs/bfun-solutions#readme",
   "devDependencies": {
-    "@bfun/cli": "^4.0.3",
-    "@bfun/solution-package": "^4.1.1",
+    "@bfun/cli": "^4.0.4",
+    "@bfun/solution-package": "^4.1.2",
     "@rollup/plugin-json": "^4.1.0",
     "execa": "^4.1.0",
     "fs-extra": "^9.1.0",

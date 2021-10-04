@@ -1,6 +1,6 @@
 {
   "name": "@bfun/solution-vite2-vue3",
-  "version": "4.0.1-beta.1",
+  "version": "4.0.1",
   "description": "@bfun/cli solution vite2 & vue3",
   "main": "dist/index.js",
   "buildOptions": {
@@ -17,9 +17,10 @@
   },
   "homepage": "https://github.com/bfunjs/bfun-solutions#readme",
   "dependencies": {
-    "@vitejs/plugin-vue": "^1.8.0",
-    "@vue/compiler-sfc": "^3.2.12",
-    "vite": "^2.5.10"
+    "@vitejs/plugin-vue": "^1.9.2",
+    "@vue/compiler-sfc": "^3.2.19",
+    "lodash-es": "^4.17.21",
+    "vite": "^2.6.2"
   },
   "peerDependencies": {
     "@bfun/cli": ">=4.0.1"

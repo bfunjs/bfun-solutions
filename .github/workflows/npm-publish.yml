@@ -4,14 +4,15 @@
 name: NPM Publish Script
 
 on:
+  push:
+    branches: [ release ]
   pull_request:
-    branches:
-      - release
+    branches: [ release ]
   release:
     types: [created]
 
 jobs:
-  publish-npm:
+  publish-npm-vite2-vue3:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,6 +23,5 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm run release:vite2-vue3
-      - run: npm run release:bfun-package
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
