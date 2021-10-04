@@ -10,7 +10,7 @@ export async function init(ctx, next) {
     const { solution } = ctx;
     const { options = {} } = solution || {};
 
-    // const isDev = process.env.NODE_ENV !== 'production';
+    const isDev = process.env.NODE_ENV !== 'production';
     const clientConfig = defineConfig(options.vite || {});
 
     clientConfig.root = configDir;
@@ -25,13 +25,13 @@ export async function init(ctx, next) {
     if (options.distSubDir) {
         clientConfig.build.outDir = resolve(rootDir, 'dist', options.distSubDir);
     }
-    if (options.ssr) {
+    if (options.ssr && !isDev) {
         serverConfig.build.outDir = resolve(clientConfig.build.outDir, 'server');
-        serverConfig.ssr = resolve(configDir, 'entry-server.ts');
+        serverConfig.build.ssr = resolve(configDir, 'entry-server.ts');
 
         clientConfig.build.outDir = resolve(clientConfig.build.outDir, 'client');
-        clientConfig.ssr = resolve(configDir, 'entry-client.ts');
-        clientConfig.ssrManifest = true;
+        clientConfig.build.ssr = resolve(configDir, 'entry-client.ts');
+        clientConfig.build.ssrManifest = true;
     }
 
     ctx.solution.vite = [ clientConfig, serverConfig ];
